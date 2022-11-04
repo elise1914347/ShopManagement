@@ -4,11 +4,11 @@ const Schema = new mongoose.Schema({
     quantity:Number,
     price:Number,
     user:{
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"user",
     },
     product:{
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"product",
     },
     isPaid:{
@@ -21,9 +21,9 @@ const Schema = new mongoose.Schema({
 Schema.pre(/^find/,function(next){
     this.populate({
         path:"user",
-        Schema:"-password"
+        select:"-password",
     });
     this.populate({path:"product"});
     next();
-})
+});
 export default mongoose.model("purchase",Schema);

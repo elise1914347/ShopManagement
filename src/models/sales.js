@@ -4,11 +4,11 @@ const Schema = new mongoose.Schema({
     quantity:Number,
     price:Number,
     user:{
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"user",
     },
     product:{
-        type:mongoose.Schema.objectId,
+        type:mongoose.Schema.ObjectId,
         ref:"product",
     },
     isPaid:{
